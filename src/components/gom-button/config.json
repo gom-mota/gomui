@@ -1,0 +1,31 @@
+{
+	"properties": {
+		"label": {
+			"description": "Texto que será exibido dentro do botão",
+			"type": "text",
+			"default": "Button"
+		},
+		"color": {
+			"description": "Cor do Botão",
+			"type": "radio",
+			"options": ["default", "alert"],
+			"default": "default"
+		},
+		"variant": {
+			"description": "Estilo do Botão",
+			"type": "radio",
+			"options": ["primary", "secondary", "text"],
+			"default": "primary"
+		},
+		"disabled": {
+			"description": "Estado habilitado/desabilitado.",
+			"type": "check",
+			"default": false
+		},
+		"onClick": {
+			"description": "Callback chamado ao clicar no botão",
+			"type": "function",
+			"default": "()=>console.log('button clicked')"
+		}
+	}
+}
