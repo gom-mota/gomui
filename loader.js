@@ -1,5 +1,7 @@
 import components from './src/components/index.js'
-import { loadComponents, observeComponents } from './index.js'
+import { loadGlobalStyle, loadComponents, observeComponents } from './index.js'
+
+loadGlobalStyle()
 
 loadComponents(components.expose)
 observeComponents(components.expose)

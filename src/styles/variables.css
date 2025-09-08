@@ -1,11 +1,14 @@
 :root {
-	--font-family: 'Lato', serif;
-	--color-background-primary: #0d1318;
-	--color-background-secondary: #10161c;
-	--color-text-primary: #cbcbd4;
-	--color-text-secondary: #aaaab3;
-	--color-title: #e4e4ee;
-	--color-accent: #e0ff8b;
-	--color-highlight: #1e262b;
+	--gom-color-background-primary: #1b2026;
+	--gom-color-background-secondary: #20242d;
+	--gom-color-text-primary: #cbcbd4;
+	--gom-color-text-secondary: #aaaab3;
+	--gom-color-title: #ececf6;
+	--gom-color-accent: #e0ff8b;
+	--gom-color-highlight: #2c313c;
+	--gom-color-background-active: #292f3c;
+
+	--gom-font-family: 'Lato', serif;
+
 	color-scheme: dark;
 }

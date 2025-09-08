@@ -35,9 +35,9 @@ class GomPreview extends HTMLElement {
 					align-items: center;
 					justify-content: center;
 					border-radius: 10px;
-					background-color: #0e1116;
+					background-color: #191E22;
 					padding: 2.5rem;
-					border: 1px solid #1e262b;
+					border: 1px solid #272d39;
 					position: relative;
 
 					> div {

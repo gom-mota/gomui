@@ -1,14 +1,17 @@
-class GomAlert extends HTMLElement {
+import { GomElement } from '/src/components/index.js'
+
+class GomAlert extends GomElement {
 	static get observedAttributes() {
 		return ['content', 'type']
 	}
 
 	constructor() {
 		super()
-		this.attachShadow({ mode: 'open' })
 
 		this._content = 'Alert!'
 		this._type = 'info'
+
+		this.loadStyles('/src/components/gom-alert/styles.css')
 	}
 
 	updateContent() {
@@ -53,9 +56,6 @@ class GomAlert extends HTMLElement {
 
 	render() {
 		return /*html*/ `
-			<style>
-                 @import url('/src/components/gom-alert/styles.css');
-            </style>
 			<div id="alert" class="alert" type="${this._type}">${this._content}</div>
 		`
 	}

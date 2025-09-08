@@ -1,12 +1,42 @@
 const loadedComponents = new Set()
 
+let globalStylesPromise = null
+
+export async function loadGlobalStyle() {
+	if (!globalStylesPromise) {
+		globalStylesPromise = (async () => {
+			try {
+				const response = await fetch(
+					new URL('./src/styles/variables.css', import.meta.url)
+				)
+
+				const styles = await response.text()
+
+				const styleElement = document.createElement('style')
+				styleElement.setAttribute('data-gomui-variables', 'default')
+				styleElement.textContent = styles
+
+				document.head.appendChild(styleElement)
+
+				return true
+			} catch (error) {
+				console.error('Error loading global styles:', error)
+
+				return false
+			}
+		})()
+	}
+	return globalStylesPromise
+}
+
 async function loadComponent(tag) {
 	if (customElements.get(tag) || loadedComponents.has(tag)) return
+
 	try {
 		await import(`./src/components/${tag}/index.js`)
 		loadedComponents.add(tag)
 	} catch (error) {
-		console.error(`Erro ao carregar ${tag}:`, error)
+		console.error(`Error loading ${tag}: `, error)
 	}
 }
 
@@ -19,6 +49,7 @@ export function loadComponents(componentMap) {
 		}
 	})
 }
+
 export function observeComponents(componentMap) {
 	const allComponents = new Set(Object.values(componentMap))
 	const observer = new MutationObserver((mutations) => {

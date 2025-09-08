@@ -1,17 +1,20 @@
-class GomButton extends HTMLElement {
+import { GomElement } from '/src/components/index.js'
+
+class GomButton extends GomElement {
 	static get observedAttributes() {
 		return ['label', 'disabled', 'variant', 'color']
 	}
 
 	constructor() {
 		super()
-		this.attachShadow({ mode: 'open' })
 
 		// Valores padrão
 		this._label = 'Button'
 		this._disabled = false
 		this._variant = 'primary'
 		this._color = 'default'
+
+		this.loadStyles('/src/components/gom-button/styles.css')
 	}
 
 	updateLabel() {
@@ -69,10 +72,7 @@ class GomButton extends HTMLElement {
 	}
 
 	render() {
-		return /*html*/ `
-            <style>
-                @import url('/src/components/gom-button/styles.css');
-            </style>
+		return /*html*/ `            
             <button id="botao" ${this._disabled ? 'disabled' : ''} color="${
 			this._color
 		}" variant="${this._variant}">
@@ -114,7 +114,6 @@ class GomButton extends HTMLElement {
 	// Método chamado quando o componente é adicionado ao DOM
 	connectedCallback() {
 		this.shadowRoot.innerHTML = this.render()
-
 		this.handleCustomCallbacks()
 	}
 

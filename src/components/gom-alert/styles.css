@@ -14,24 +14,24 @@
 
 .alert[type='info'] {
 	border-color: #88d7ff;
-	background-color: #0b222e;
+	background-color: #222d36;
 	color: #88d7ff;
 }
 
 .alert[type='success'] {
 	border-color: #88ff90;
-	background-color: #102c0f;
+	background-color: #273128;
 	color: #88ff90;
 }
 
 .alert[type='warning'] {
 	border-color: #ffd388;
-	background-color: #2a200f;
+	background-color: #312e27;
 	color: #ffd388;
 }
 
 .alert[type='error'] {
 	border-color: #ff8888;
-	background-color: #2a0d0f;
+	background-color: #312222;
 	color: #ff8888;
 }
