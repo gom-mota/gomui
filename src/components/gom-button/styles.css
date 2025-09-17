@@ -80,7 +80,7 @@ button[variant='secondary']:disabled {
 button[variant='text'] {
 	background: none;
 	text-decoration: underline;
-	padding: 0.5rem;
+	padding: 3px 5px;
 	text-underline-offset: 3px;
 
 	&[color='default'] {

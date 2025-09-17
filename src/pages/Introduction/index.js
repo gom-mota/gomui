@@ -5,14 +5,17 @@ const Introduction = async () => {
 			<h1>Introdução</h1>
 			
 			<p>GOMUI é uma biblioteca de Web Components, uma tecnologia versátil no desenvolvimento web
-			moderno. O objetivo é oferecer elementos HTML personalizados que funcionem de forma consistente em
-			diferentes ambientes.</p>
+			moderno. O objetivo é disponibilizar elementos HTML personalizados que mantenham um design consistente e
+			funcionem bem em diversos contextos.</p>
 
 			<h2>Como surgiu o projeto?</h2>
 
-			<p>O projeto surgiu durante minha jornada de aprendizado sobre Web Components. Resolvi compartilhar os
-			resultados online para que, ao explorar o site/código, outras pessoas possam compreender de forma simples e
-			prática como essa tecnologia funciona.</p>
+			<p>
+			O projeto nasceu durante meus estudos sobre Web Components. A proposta foi criar um site simples, com conceitos
+			nativos, onde fosse possível visualizar de forma prática o funcionamento dos componentes online. Esse processo
+			serviu como incentivo para continuar aprendendo e publicando novos componentes, além de se tornar um recurso
+			para que outras pessoas também possam explorar, compreender o tema e contribuir com novas ideias e melhorias.
+			</p>
 
 			<p>Abaixo, confira alguns exemplos de sites que utilizam a biblioteca. Eles mostram como os Web Components
 			podem ser aplicados em diferentes tipos de aplicações e como eles se comportam em ambientes de produção.</p>
@@ -31,8 +34,7 @@ const Introduction = async () => {
 			<h2>Gostou da ideia?</h2>
 
 			<p>O site está hospedado sem custos no GitHub Pages. Se você deseja dar os primeiros passos para criar sua própria biblioteca ou
-			reaproveitar o código de determinada parte, acesse o
-			<a href='https://github.com/gom-mota/gomui' target='_blank'>repositório</a>.</p>
+			reaproveitar o código de determinada parte, acesse o <gom-button id='repo-button' label="repositório" variant="text"></gom-button>
 		</div>
 		`
 	}
@@ -41,7 +43,12 @@ const Introduction = async () => {
 		title: 'Introdução',
 		description: 'Página de Introdução',
 		render,
-		after_render: () => {},
+		after_render: () => {
+			const repoButton = document.getElementById('repo-button')
+
+			repoButton.onclick = () =>
+				window.open('https://github.com/gom-mota/gomui')
+		},
 	}
 }
 

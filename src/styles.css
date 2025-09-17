@@ -438,7 +438,8 @@ h2 {
 		color: white;
 
 		&:hover {
-			background-color: #1a222a;
+			background-color: var(--gom-color-highlight);
+			border-color: var(--gom-color-highlight-focus);
 		}
 	}
 
@@ -646,7 +647,7 @@ h2 {
 	border-radius: 7px;
 	border: 1px solid;
 	border-color: var(--gom-color-highlight);
-	padding: 0.8rem 2rem 0.8rem 1.5rem;
+	padding: 0.6rem 2rem 0.6rem 0.8rem;
 	align-items: center;
 	text-decoration: none;
 	color: var(--gom-color-title);
@@ -655,7 +656,7 @@ h2 {
 
 	&:hover {
 		background-color: var(--gom-color-highlight);
-		border-color: #39404e;
+		border-color: var(--gom-color-highlight-focus);
 		color: var(--gom-color-title);
 	}
 
