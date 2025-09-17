@@ -1,12 +1,12 @@
 {
 	"properties": {
 		"title": {
-			"description": "Texto que será exibido dentro do botão",
+			"description": "Texto que será exibido no cabeçalho",
 			"type": "text",
 			"default": "Title"
 		},
 		"is-open": {
-			"description": "Estado aberto/fechado",
+			"description": "Estado de aberto/fechado",
 			"type": "check",
 			"default": false
 		}

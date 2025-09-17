@@ -735,3 +735,14 @@ pre {
 .slot-badge {
 	color: #c26fbd;
 }
+
+#progress {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 3px;
+	background: var(--gom-color-accent);
+	width: 0;
+	z-index: 9999;
+	transition: width 0.3s ease;
+}

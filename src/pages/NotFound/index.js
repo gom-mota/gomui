@@ -29,7 +29,7 @@ const NotFound = async () => {
 		title: 'Não Encontrado',
 		description: 'Página não encontrada',
 		render,
-		after_render: () => {
+		after_render: async () => {
 			const button = document.getElementById('home')
 			if (button) button.onClick = () => navigateToRoute('/')
 		},

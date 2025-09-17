@@ -43,7 +43,7 @@ const Introduction = async () => {
 		title: 'Introdução',
 		description: 'Página de Introdução',
 		render,
-		after_render: () => {
+		after_render: async () => {
 			const repoButton = document.getElementById('repo-button')
 
 			repoButton.onclick = () =>

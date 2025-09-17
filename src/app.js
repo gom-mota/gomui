@@ -1,6 +1,7 @@
 import Sidebar, { handleSetActiveNavItem } from './common/Sidebar/index.js'
 import components from './components/index.js'
 import { loadComponents, observeComponents } from '../index.js'
+import { startProgressWithDelay, finishProgress } from './utils.js'
 
 export const ROUTES = {
 	'/': { name: 'Introduction', label: 'Introdução', nav: true },
@@ -24,6 +25,8 @@ export const renderPageContent = async (name, params) => {
 	const content = document.getElementById('content')
 	const sidebar = document.getElementById('sidebar')
 
+	startProgressWithDelay()
+
 	try {
 		sidebar.style.display = name === 'NotFound' ? 'none' : 'flex'
 
@@ -34,6 +37,8 @@ export const renderPageContent = async (name, params) => {
 
 		content.innerHTML = await render()
 		await after_render()
+
+		finishProgress()
 
 		if (container) container.scrollTop = 0
 

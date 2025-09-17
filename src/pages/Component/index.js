@@ -1,6 +1,10 @@
 import ComponentSetting from '../../common/ComponentSetting/index.js'
 import components from '../../components/index.js'
-import { markdownToHtml } from '../../utils.js'
+import {
+	finishProgress,
+	markdownToHtml,
+	startProgressWithDelay,
+} from '../../utils.js'
 
 const Component = async ({ name }) => {
 	const tag = components.expose[name]
@@ -75,6 +79,8 @@ const Component = async ({ name }) => {
 			element.id === 'documentation' &&
 			!element.classList.contains('active')
 		) {
+			startProgressWithDelay()
+
 			document.getElementById('documentation-tab-content').innerHTML =
 				await fetch(`${baseComponentPath}/doc.md`)
 					.then((response) => response.text())
@@ -84,6 +90,8 @@ const Component = async ({ name }) => {
 								markdown
 							)}</div>`
 					)
+
+			finishProgress()
 
 			handleComponentCallbacks()
 		}

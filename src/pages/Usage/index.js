@@ -28,7 +28,9 @@ const Usage = async () => {
 		title: 'Uso',
 		description: 'Página de Uso',
 		render,
-		after_render: () => highlightHtmlBlockCode(),
+		after_render: async () => {
+			highlightHtmlBlockCode()
+		},
 	}
 }
 

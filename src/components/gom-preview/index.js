@@ -36,7 +36,7 @@ class GomPreview extends HTMLElement {
 					justify-content: center;
 					border-radius: 10px;
 					background-color: #191E22;
-					padding: 2.5rem;
+					padding: 2.5rem 2.5rem 3.5rem 2.5rem;
 					border: 1px solid #272d39;
 					position: relative;
 
@@ -58,10 +58,11 @@ class GomPreview extends HTMLElement {
 
 				.copy-code {
 					position: absolute;
-					bottom: 5px;
-					right: 5px;
-					border: 1px solid #1e262b;
-					background: none;
+					bottom: 7px;
+					right: 7px;
+					border: 1px solid ;
+					border-color: var(--gom-color-highlight);
+					background: var(--gom-color-background-secondary);
 					color: white;
 					border-radius: 7px;
 					cursor: pointer;
@@ -71,7 +72,9 @@ class GomPreview extends HTMLElement {
 					gap: 0.3rem;
 
 					&:hover {
-						background: #1a222a;
+						background: var(--gom-color-highlight);
+						border-color: var(--gom-color-highlight-focus);
+
 					}
 
 					&::after {
@@ -80,7 +83,7 @@ class GomPreview extends HTMLElement {
 						bottom: 160%;
 						left: 50%;
 						transform: translateX(-50%) scale(0.95);
-						background: #1a222a;
+						background: var(--gom-color-highlight-focus);
 						color: #fff;
 						padding: 4px 14px;
 						border-radius: 4px;
@@ -99,7 +102,7 @@ class GomPreview extends HTMLElement {
 						left: 50%;
 						transform: translateX(-50%);
 						border: 6px solid transparent;
-						border-top-color: #1a222a;
+						border-top-color: var(--gom-color-highlight-focus);
 						opacity: 0;
 						transition: opacity 0.3s ease;
 						pointer-events: none;

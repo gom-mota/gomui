@@ -103,3 +103,56 @@ export const highlightHtmlBlockCode = () => {
 		)
 	})
 }
+
+const progressBar = document.getElementById('progress')
+
+let interval
+let loaderTimeout
+
+export const startProgress = () => {
+	progressBar.style.width = '0'
+	progressBar.style.opacity = '1'
+
+	let progress = 0
+	interval = setInterval(() => {
+		progress += Math.random() * 10
+		if (progress < 90) {
+			progressBar.style.width = progress + '%'
+		}
+	}, 200)
+}
+
+export const startProgressWithDelay = () => {
+	if (loaderTimeout) {
+		clearTimeout(loaderTimeout)
+		loaderTimeout = null
+	}
+
+	if (interval) {
+		clearInterval(interval)
+		interval = null
+	}
+
+	loaderTimeout = setTimeout(() => {
+		startProgress()
+		loaderTimeout = null
+	}, 200)
+}
+
+export const finishProgress = () => {
+	if (loaderTimeout) {
+		clearTimeout(loaderTimeout)
+		loaderTimeout = null
+		return
+	}
+
+	if (interval) {
+		clearInterval(interval)
+		interval = null
+	}
+
+	progressBar.style.width = '100%'
+
+	setTimeout(() => (progressBar.style.opacity = '0'), 300)
+	setTimeout(() => (progressBar.style.width = '0'), 600)
+}
