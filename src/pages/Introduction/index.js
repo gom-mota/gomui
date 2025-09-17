@@ -12,8 +12,8 @@ const Introduction = async () => {
 
 			<p>
 			O projeto nasceu durante meus estudos sobre Web Components. A proposta foi criar um site simples, com conceitos
-			nativos, onde fosse possível visualizar de forma prática o funcionamento dos componentes online. Esse processo
-			serviu como incentivo para continuar aprendendo e publicando novos componentes, além de se tornar um recurso
+			nativos, onde fosse possível visualizar de forma prática o funcionamento dos componentes online. Ele serve
+			como incentivo para continuar aprendendo e publicando novos componentes, além de ser um recurso
 			para que outras pessoas também possam explorar, compreender o tema e contribuir com novas ideias e melhorias.
 			</p>
 
