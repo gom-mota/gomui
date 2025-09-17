@@ -54,6 +54,22 @@ const Component = async ({ name }) => {
 		}
 	}
 
+	const handleComponentSlots = () => {
+		if (config && config.slots) {
+			return Object.entries(config.slots)
+				.map(([key, prop]) => {
+					if (key === 'children') return `<div>${prop.default}</div>`
+
+					return prop.default
+						? `<div slot='${key}'>${prop.default}</div>`
+						: ''
+				})
+				.join('')
+		}
+
+		return ''
+	}
+
 	window.handleClickTab = async (element) => {
 		if (
 			element.id === 'documentation' &&
@@ -96,7 +112,7 @@ const Component = async ({ name }) => {
 				<div id='component-tabs-contents'>
 					<div id='live-preview-tab-content' class='live-preview-tab-content'>
 					
-						<gom-preview align="center"> <${tag}></${tag}> </gom-preview>
+						<gom-preview align="center"> <${tag}>${handleComponentSlots()}</${tag}> </gom-preview>
 
 					</div>
 						

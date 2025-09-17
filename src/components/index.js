@@ -1,11 +1,15 @@
-const expose = { button: 'gom-button', alert: 'gom-alert' }
+const expose = {
+	button: 'gom-button',
+	alert: 'gom-alert',
+	accordion: 'gom-accordion',
+}
 
 const components = {
 	internal: { ...expose, color: 'gom-color', preview: 'gom-preview' },
 	expose,
 }
 
-const componentsStyleCache = new Map()
+const componentsStyle = new Map()
 
 class GomElement extends HTMLElement {
 	constructor() {
@@ -15,22 +19,22 @@ class GomElement extends HTMLElement {
 
 	async loadStyles(stylePath) {
 		try {
-			let styles = componentsStyleCache.get(stylePath)
+			let componentStyle = componentsStyle.get(stylePath)
 
-			if (!styles) {
+			if (!componentStyle) {
 				const response = await fetch(
 					new URL(stylePath, import.meta.url)
 				)
 
 				const cssText = await response.text()
 
-				styles = new CSSStyleSheet()
-				await styles.replace(cssText)
+				componentStyle = new CSSStyleSheet()
+				await componentStyle.replace(cssText)
 
-				componentsStyleCache.set(stylePath, styles)
+				componentsStyle.set(stylePath, componentStyle)
 			}
 
-			this.shadowRoot.adoptedStyleSheets = [styles]
+			this.shadowRoot.adoptedStyleSheets = [componentStyle]
 		} catch (error) {
 			console.error(`Failed to load styles for ${this.tagName}: `, error)
 		}

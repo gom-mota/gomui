@@ -91,7 +91,7 @@ class GomButton extends GomElement {
 				this.updateLabel()
 				break
 			case 'disabled':
-				this._disabled = newValue === 'true'
+				this._disabled = this.hasAttribute('disabled')
 				this.updateDisabled()
 				break
 			case 'variant':

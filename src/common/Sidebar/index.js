@@ -91,6 +91,7 @@ const Sidebar = () => {
                                     </li>
                                 `
 							)
+							.sort()
 							.join('')}
                     </ul>
                 </ul>

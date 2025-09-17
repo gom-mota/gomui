@@ -721,3 +721,16 @@ pre {
 		}
 	}
 }
+
+.badge-item,
+.slot-badge {
+	padding: 0 3px;
+	font-size: 14px;
+	letter-spacing: 0.5px;
+	border-radius: 3px;
+	border: 1px solid var(--gom-color-highlight);
+}
+
+.slot-badge {
+	color: #c26fbd;
+}

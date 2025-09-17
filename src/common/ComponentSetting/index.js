@@ -58,16 +58,41 @@ const ComponentSetting = (props) => {
 
 				<tbody>
 					${Object.entries(config.properties)
-						.map(
-							([key, prop]) =>
-								`<tr>
-									<td>${key}</td>
-									<td>${prop.description}</td>
-									<td>${prop.type === 'function' ? '-' : prop.default || '-'}</td>
-									<td>${inputTypes[prop.type] ? inputTypes[prop.type](prop, key) : '-'}</td>
-								</tr>`
-						)
+						.map(([key, prop]) => {
+							const defaultContent =
+								prop.type === 'function' ||
+								prop.type === 'check'
+									? '-'
+									: prop.default || '-'
+
+							return `<tr>
+										<td>${key}</td>
+										<td>${prop.description}</td>
+										<td>${defaultContent}</td>
+										<td>${inputTypes[prop.type] ? inputTypes[prop.type](prop, key) : '-'}</td>
+									</tr>`
+						})
 						.join('')}
+						
+						${
+							config.slots
+								? Object.entries(config.slots)
+										.map(([key, prop]) => {
+											const slotKeyContent =
+												key === 'children'
+													? key
+													: `<span class='slot-badge'>slot</span> ${key}`
+
+											return `<tr>
+														<td>${slotKeyContent}</td>
+														<td>${prop.description}</td>
+														<td>-</td>
+														<td>-</td>
+													</tr>`
+										})
+										.join('')
+								: ''
+						}
 				</tbody>
 			</table>
         `
@@ -75,8 +100,13 @@ const ComponentSetting = (props) => {
 	const after_render = () => {
 		const renderedComponent = document.querySelector(tag)
 
-		window.updateComponent = (propName, value) =>
-			renderedComponent.setAttribute(propName, value)
+		window.updateComponent = (propName, value) => {
+			if (value === true || value === false) {
+				value
+					? renderedComponent.setAttribute(propName, '')
+					: renderedComponent.removeAttribute(propName)
+			} else renderedComponent.setAttribute(propName, value)
+		}
 
 		const setInitialProps = () => {
 			Object.entries(config.properties).forEach(([key, prop]) => {

@@ -1,0 +1,24 @@
+{
+	"properties": {
+		"title": {
+			"description": "Texto que será exibido dentro do botão",
+			"type": "text",
+			"default": "Title"
+		},
+		"is-open": {
+			"description": "Estado aberto/fechado",
+			"type": "check",
+			"default": false
+		}
+	},
+	"slots": {
+		"children": {
+			"description": "Conteúdo principal exibido dentro do componente",
+			"default": "Content"
+		},
+		"description": {
+			"description": "Conteúdo em destaque",
+			"default": "Description"
+		}
+	}
+}
