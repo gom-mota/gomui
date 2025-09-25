@@ -31,10 +31,15 @@ const Introduction = async () => {
 				</a>
 			</div>
 
-			<h2>Gostou da ideia?</h2>
+			<h2>Dê os primeiros passos!</h2>
 
-			<p>O site está hospedado sem custos no GitHub Pages. Se você deseja dar os primeiros passos para criar sua própria biblioteca ou
-			reaproveitar o código de determinada parte, acesse o <gom-button id='repo-button' label="repositório" variant="text"></gom-button>
+			<p>
+			O projeto está hospedado gratuitamente no GitHub Pages. Explore os conceitos usados no site e coloque suas ideias no ar
+			de forma simples e acessível. Se você está começando com Web Components ou SPA, essa é uma ótima
+			oportunidade para aprender na prática. 
+			<gom-button id='repo-button' label="Acesse o repositório" variant="text"></gom-button>
+			</p>
+
 		</div>
 		`
 	}
