@@ -19,6 +19,8 @@ class GomElement extends HTMLElement {
 
 	async loadStyles(stylePath) {
 		try {
+			if (this.shadowRoot.adoptedStyleSheets.length > 0) return
+
 			let componentStyle = componentsStyle.get(stylePath)
 
 			if (!componentStyle) {
