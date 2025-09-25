@@ -10,6 +10,7 @@ const components = {
 }
 
 const componentsStyle = new Map()
+const styleLoadPromises = new Map()
 
 class GomElement extends HTMLElement {
 	constructor() {
@@ -21,21 +22,34 @@ class GomElement extends HTMLElement {
 		try {
 			if (this.shadowRoot.adoptedStyleSheets.length > 0) return
 
-			let componentStyle = componentsStyle.get(stylePath)
+			let loadStylePromise = styleLoadPromises.get(stylePath)
 
-			if (!componentStyle) {
-				const response = await fetch(
-					new URL(stylePath, import.meta.url)
-				)
+			if (!loadStylePromise) {
+				loadStylePromise = (async () => {
+					try {
+						const componentStyle = componentsStyle.get(stylePath)
+						if (componentStyle) return componentStyle
 
-				const cssText = await response.text()
+						const response = await fetch(
+							new URL(stylePath, import.meta.url)
+						)
+						const cssText = await response.text()
 
-				componentStyle = new CSSStyleSheet()
-				await componentStyle.replace(cssText)
+						const newStyle = new CSSStyleSheet()
+						await newStyle.replace(cssText)
 
-				componentsStyle.set(stylePath, componentStyle)
+						componentsStyle.set(stylePath, newStyle)
+						return newStyle
+					} catch (error) {
+						styleLoadPromises.delete(stylePath)
+						throw error
+					}
+				})()
+
+				styleLoadPromises.set(stylePath, loadStylePromise)
 			}
 
+			const componentStyle = await loadStylePromise
 			this.shadowRoot.adoptedStyleSheets = [componentStyle]
 		} catch (error) {
 			console.error(`Failed to load styles for ${this.tagName}: `, error)

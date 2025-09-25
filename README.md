@@ -11,6 +11,8 @@ Este repositório contém:
 -   O **site** que lista e documenta os componentes.
 -   A lógica necessária para **exportar e utilizar** componentes em outros projetos.
 
+---
+
 ## 🚀 Criando um novo componente
 
 Cada componente deve ter sua própria pasta, contendo 4 arquivos:
@@ -48,8 +50,6 @@ customElements.define('gom-example', GomExample)
 
 > **Dica**: use um componente existente como base, por exemplo `src/components/gom-alert/index.js`.
 
----
-
 ### Estrutura do `config.json`
 
 ```json
@@ -86,11 +86,11 @@ customElements.define('gom-example', GomExample)
 -   **children** indica que o slot padrão `<slot></slot>` é aceito.
 -   **type** aceitos em "properties" → `text` | `check` | `radio` | `select`.
 
----
-
 ### Registrando o componente
 
 Exporte o novo componente dentro do objeto `exposes` no arquivo `src/components/index.js`, seguindo o padrão dos demais. Dessa forma ele irá aparecer no menu lateral e será possível utiliza-lo no projeto que fizer o uso da biblioteca.
+
+---
 
 ## 📄 Criando uma nova página
 
@@ -117,8 +117,6 @@ const MyPage = async () => {
 export default MyPage
 ```
 
----
-
 ### Registrando a rota
 
 No arquivo `src/app.js`, adicione a nova página no objeto `ROUTES`:
@@ -138,10 +136,14 @@ export const ROUTES = {
 > -   [404.html](404.html)
 > -   [app.js](src/app.js) → `handleGithubPages404File()`
 
+---
+
 ## 🛠️ Dicas de Desenvolvimento
 
 -   [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) → melhora a visualização da sintaxe HTML dentro de template strings do Javascript.
 -   [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) → executa um servidor local para testar alterações em tempo real.
+
+---
 
 ## 🤝 Contribuições
 
