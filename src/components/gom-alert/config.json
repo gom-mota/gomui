@@ -1,0 +1,15 @@
+{
+	"properties": {
+		"content": {
+			"description": "Texto de exibição",
+			"type": "text",
+			"default": "Alert!"
+		},
+		"type": {
+			"description": "Tipo",
+			"type": "radio",
+			"options": ["info", "success", "warning", "error"],
+			"default": "info"
+		}
+	}
+}

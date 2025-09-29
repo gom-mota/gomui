@@ -1,0 +1,103 @@
+button {
+	color: white;
+	border: none;
+	border-radius: 7px;
+	padding: 0.5rem 1rem;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+button:disabled {
+	cursor: auto;
+}
+
+button[variant='primary'] {
+	color: #0d1318;
+
+	&[color='default'] {
+		background-color: var(--gom-color-accent);
+	}
+
+	&[color='alert'] {
+		background-color: #ffa58b;
+	}
+}
+
+button[variant='primary']:hover {
+	&[color='default'] {
+		background-color: #c4e66f;
+	}
+
+	&[color='alert'] {
+		background-color: #ef9074;
+	}
+}
+
+button[variant='primary']:disabled {
+	&[color='default'] {
+		background-color: #606a43;
+	}
+
+	&[color='alert'] {
+		background-color: #6a4f43;
+	}
+}
+
+button[variant='secondary'] {
+	&[color='default'] {
+		background: #30382c;
+		color: #eaffb1;
+	}
+
+	&[color='alert'] {
+		background: #38312c;
+		color: #ffc8b1;
+	}
+}
+
+button[variant='secondary']:hover {
+	&[color='default'] {
+		background: #2d3529;
+	}
+
+	&[color='alert'] {
+		background: #352e29;
+	}
+}
+
+button[variant='secondary']:disabled {
+	&[color='default'] {
+		background: #272b26;
+		color: #7f8d68;
+	}
+
+	&[color='alert'] {
+		background: #2b2826;
+		color: #8d7268;
+	}
+}
+
+button[variant='text'] {
+	background: none;
+	text-decoration: underline;
+	padding: 3px 5px;
+	text-underline-offset: 3px;
+
+	&[color='default'] {
+		color: #e0ff8b;
+	}
+
+	&[color='alert'] {
+		color: #ffa58b;
+	}
+}
+
+button[variant='text']:disabled {
+	&[color='default'] {
+		color: #929d73;
+	}
+
+	&[color='alert'] {
+		color: #9d8173;
+	}
+}

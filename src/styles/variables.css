@@ -1,0 +1,15 @@
+:root {
+	--gom-color-background-primary: #1b2026;
+	--gom-color-background-secondary: #20242d;
+	--gom-color-text-primary: #cbcbd4;
+	--gom-color-text-secondary: #aaaab3;
+	--gom-color-title: #ececf6;
+	--gom-color-accent: #e0ff8b;
+	--gom-color-highlight: #2c313c;
+	--gom-color-highlight-focus: #39404e;
+	--gom-color-background-active: #292f3c;
+
+	--gom-font-family: 'Lato', serif;
+
+	color-scheme: dark;
+}

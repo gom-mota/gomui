@@ -1,0 +1,37 @@
+:host {
+	width: 100%;
+}
+.alert {
+	padding: 12px 18px;
+	border-radius: 0 5px 5px 0;
+	font-size: 15px;
+	font-family: Arial, sans-serif;
+	border-left: 2px solid;
+	width: auto;
+	line-height: 20px;
+	text-align: left;
+}
+
+.alert[type='info'] {
+	border-color: #88d7ff;
+	background-color: #222d36;
+	color: #88d7ff;
+}
+
+.alert[type='success'] {
+	border-color: #88ff90;
+	background-color: #273128;
+	color: #88ff90;
+}
+
+.alert[type='warning'] {
+	border-color: #ffd388;
+	background-color: #312e27;
+	color: #ffd388;
+}
+
+.alert[type='error'] {
+	border-color: #ff8888;
+	background-color: #312222;
+	color: #ff8888;
+}
